@@ -14,6 +14,7 @@
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
+filetype off
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents.  Use this to allow intelligent auto-indenting for each filetype,
@@ -23,13 +24,19 @@ filetype off
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'gmarik/vundle'
 
 " Bundles
-Bundle 'mbadran/headlights'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails.git'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'mbadran/headlights'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-rails.git'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle  'tpope/vim-surround'
+Bundle  'tpope/vim-ragtag'
+Bundle  'tsaleh/vim-matchit'
+Bundle  'kien/ctrlp.vim'
+Bundle  'othree/html5.vim'
 
 filetype plugin indent on " ???Vundle
 
@@ -165,9 +172,9 @@ set expandtab
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
-nmap <A-SPACE> :FufBuffer<CR>
-imap <A-SPACE> <C-x><C-o>
-imap <C-S>  <C-\><C-O>:w<cr>
+nmap <C-SPACE> :FufBuffer<CR>
+inoremap ,, <C-x><C-o>
+inoremap <c-s>  <C-O>:w<CR>
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -187,6 +194,6 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
 let TE_Use_Right_Window = 1
-let TE_Ctags_Path="/opt/local/bin/ctags"
+let TE_Ctags_Path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ctags"
 let TE_WinWidth = 45
 let NERDTreeChDirMode=2

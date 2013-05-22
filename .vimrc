@@ -172,7 +172,7 @@ set expandtab
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
-nmap <C-SPACE> :FufBuffer<CR>
+nmap ;; :FufBuffer<CR>
 inoremap ,, <C-x><C-o>
 inoremap <c-s>  <C-O>:w<CR>
 
@@ -194,6 +194,6 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
 let TE_Use_Right_Window = 1
-let TE_Ctags_Path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ctags"
+let TE_Ctags_Path="/opt/local/bin/ctags"
 let TE_WinWidth = 45
 let NERDTreeChDirMode=2

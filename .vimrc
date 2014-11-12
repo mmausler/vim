@@ -16,33 +16,50 @@
 set nocompatible
 filetype off
 
-" Attempt to determine the type of a file based on its name and possibly its
-" contents.  Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype off
 
 " Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
 " Bundles
 "Bundle 'mbadran/headlights'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'tpope/vim-rails.git'
 "Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle  'tpope/vim-surround'
-Bundle  'tpope/vim-ragtag'
-Bundle  'tsaleh/vim-matchit'
-Bundle  'kien/ctrlp.vim'
-Bundle  'othree/html5.vim'
+Plugin  'msanders/snipmate.vim'
+Plugin  'rstacruz/sparkup'
+Plugin  'tpope/vim-surround'
+Plugin  'tpope/vim-repeat'
+Plugin  'tpope/vim-rails'
+Plugin  'edsono/vim-matchit'
+Plugin  'kien/ctrlp.vim'
+Plugin  'othree/html5.vim'
+Plugin  'altercation/vim-colors-solarized'
+Plugin  'vim-scripts/slimv.vim'
+Plugin  'cakebaker/scss-syntax.vim'
+Plugin  'SirVer/ultisnips'
+Plugin  'Valloric/YouCompleteMe'
+Plugin  'wavded/vim-stylus'
+Plugin  'digitaltoad/vim-jade'
 
-filetype plugin indent on " ???Vundle
+call vundle#end() 
+" Attempt to determine the type of a file based on its name and possibly its
+" contents.  Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+filetype plugin indent on
+
+if &term =~ '256color'
+  " Disable Background Color Erase (BCE) so that color schemes
+  " work properly when Vim is used inside tmux and GNU screen.
+  " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+  set t_Co=256
+endif
 
 " Enable syntax highlighting
 syntax on
-
+set background=dark
 " Set colorscheme
 colorscheme molokai
 
@@ -171,7 +188,7 @@ set expandtab
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
-map Y y$
+map Y Vy
 nmap ;; :FufBuffer<CR>
 inoremap ,, <C-x><C-o>
 inoremap <c-s>  <C-O>:w<CR>
@@ -179,6 +196,9 @@ inoremap <c-s>  <C-O>:w<CR>
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+" Move text down a line
+nmap <CR> i<CR><Esc>
 
 
 "------------------------------------------------------------
@@ -188,12 +208,24 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType stylus set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
+" Coffee Script
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+
+" Open NERDTree on start and switch to edit window
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
+
 let TE_Use_Right_Window = 1
-let TE_Ctags_Path="/opt/local/bin/ctags"
+let TE_Ctags_Path="/usr/bin/ctags"
 let TE_WinWidth = 45
 let NERDTreeChDirMode=2
+let g:slimv_python = 'python2'
+let g:slimv_swank_cmd ='! xterm -e sbcl --load /home/michael/.vim/bundle/slimv.vim/slime/start-swank.lisp &'

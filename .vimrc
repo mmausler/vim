@@ -159,8 +159,8 @@ set number
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
+" Use <F12> to toggle between 'paste' and 'nopaste'
+set pastetoggle=<F12>
 
 
 "------------------------------------------------------------
@@ -191,7 +191,7 @@ set expandtab
 map Y Vy
 nmap ;; :FufBuffer<CR>
 inoremap ,, <C-x><C-o>
-inoremap <c-s>  <C-O>:w<CR>
+map <Esc><Esc>  <C-O>:w<CR>
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -200,6 +200,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Move text down a line
 nmap <CR> i<CR><Esc>
 
+nmap tt :NERDTreeToggle<CR>:wincmd w<CR>
 
 "------------------------------------------------------------
 " Auto-Complete

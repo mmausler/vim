@@ -54,12 +54,16 @@
 :FufTag	fuf.txt	/*:FufTag*
 :FufTagWithCursorWord	fuf.txt	/*:FufTagWithCursorWord*
 :FufTaggedFile	fuf.txt	/*:FufTaggedFile*
+:MkVimball	pi_vimball.txt	/*:MkVimball*
 :NERDTree	NERD_tree.txt	/*:NERDTree*
 :NERDTreeClose	NERD_tree.txt	/*:NERDTreeClose*
 :NERDTreeFind	NERD_tree.txt	/*:NERDTreeFind*
 :NERDTreeFromBookmark	NERD_tree.txt	/*:NERDTreeFromBookmark*
 :NERDTreeMirror	NERD_tree.txt	/*:NERDTreeMirror*
 :NERDTreeToggle	NERD_tree.txt	/*:NERDTreeToggle*
+:RmVimball	pi_vimball.txt	/*:RmVimball*
+:UseVimball	pi_vimball.txt	/*:UseVimball*
+:VimballList	pi_vimball.txt	/*:VimballList*
 NERDTree	NERD_tree.txt	/*NERDTree*
 NERDTree-?	NERD_tree.txt	/*NERDTree-?*
 NERDTree-A	NERD_tree.txt	/*NERDTree-A*
@@ -119,6 +123,7 @@ NERDTreeOptionSummary	NERD_tree.txt	/*NERDTreeOptionSummary*
 NERDTreeOptions	NERD_tree.txt	/*NERDTreeOptions*
 NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
+Vimball-copyright	pi_vimball.txt	/*Vimball-copyright*
 abc	fuf.txt	/*abc*
 fuf	fuf.txt	/*fuf*
 fuf#setOneTimeVariables()	fuf.txt	/*fuf#setOneTimeVariables()*
@@ -261,6 +266,8 @@ g:fuf_taggedfile_prompt	fuf.txt	/*g:fuf_taggedfile_prompt*
 g:fuf_taggedfile_switchOrder	fuf.txt	/*g:fuf_taggedfile_switchOrder*
 g:fuf_timeFormat	fuf.txt	/*g:fuf_timeFormat*
 g:fuf_useMigemo	fuf.txt	/*g:fuf_useMigemo*
+g:vimball_home	pi_vimball.txt	/*g:vimball_home*
+g:vimball_mkdir	pi_vimball.txt	/*g:vimball_mkdir*
 l9	l9.txt	/*l9*
 l9-about	l9.txt	/*l9-about*
 l9-author	l9.txt	/*l9-author*
@@ -270,6 +277,7 @@ l9-installation	l9.txt	/*l9-installation*
 l9-introduction	l9.txt	/*l9-introduction*
 l9-usage	l9.txt	/*l9-usage*
 l9.txt	l9.txt	/*l9.txt*
+pi_vimball.txt	pi_vimball.txt	/*pi_vimball.txt*
 ragtag	ragtag.txt	/*ragtag*
 ragtag-CTRL-V_%	ragtag.txt	/*ragtag-CTRL-V_%*
 ragtag-CTRL-V_&	ragtag.txt	/*ragtag-CTRL-V_&*
@@ -293,3 +301,11 @@ ragtag-encoding	ragtag.txt	/*ragtag-encoding*
 ragtag-mappings	ragtag.txt	/*ragtag-mappings*
 ragtag-surroundings	ragtag.txt	/*ragtag-surroundings*
 ragtag.txt	ragtag.txt	/*ragtag.txt*
+vba	pi_vimball.txt	/*vba*
+vimball	pi_vimball.txt	/*vimball*
+vimball-contents	pi_vimball.txt	/*vimball-contents*
+vimball-extract	pi_vimball.txt	/*vimball-extract*
+vimball-history	pi_vimball.txt	/*vimball-history*
+vimball-intro	pi_vimball.txt	/*vimball-intro*
+vimball-manual	pi_vimball.txt	/*vimball-manual*
+vimball-windows	pi_vimball.txt	/*vimball-windows*

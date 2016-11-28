@@ -27,21 +27,35 @@ Plugin 'gmarik/Vundle.vim'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'tpope/vim-rails.git'
 "Bundle 'Lokaltog/vim-easymotion'
+Plugin  'vim-airline/vim-airline'
+Plugin  'easymotion/vim-easymotion'
 Plugin  'msanders/snipmate.vim'
 Plugin  'rstacruz/sparkup'
 Plugin  'tpope/vim-surround'
 Plugin  'tpope/vim-repeat'
 Plugin  'tpope/vim-rails'
+Plugin  'tpope/vim-ragtag'
+Plugin  'tpope/vim-unimpaired'
 Plugin  'edsono/vim-matchit'
+Plugin  'scrooloose/nerdtree'
 Plugin  'kien/ctrlp.vim'
 Plugin  'othree/html5.vim'
 Plugin  'altercation/vim-colors-solarized'
+Plugin  'tomasr/molokai'
 Plugin  'vim-scripts/slimv.vim'
 Plugin  'cakebaker/scss-syntax.vim'
+Plugin  'scrooloose/syntastic'
+Plugin  'majutsushi/tagbar'
+Plugin  'qpkorr/vim-bufkill'
 Plugin  'SirVer/ultisnips'
+Plugin  'lfilho/cosco.vim'
 Plugin  'Valloric/YouCompleteMe'
 Plugin  'wavded/vim-stylus'
-Plugin  'digitaltoad/vim-jade'
+Plugin  'digitaltoad/vim-pug'
+Plugin  'xsbeats/vim-blade'
+Plugin  'dracula/vim'
+Plugin  'editorconfig/editorconfig-vim'
+Plugin  'hhsnopek/vim-sugarss'
 
 call vundle#end() 
 " Attempt to determine the type of a file based on its name and possibly its
@@ -62,6 +76,7 @@ syntax on
 set background=dark
 " Set colorscheme
 colorscheme molokai
+"colorscheme dracula
 
 " Turn off GUI toolbar
 if has("gui_running")
@@ -189,7 +204,8 @@ set expandtab
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y Vy
-nmap ;; :FufBuffer<CR>
+nmap ;; :b#<CR>
+nmap <C-b> :CtrlPBuffer<CR>
 inoremap ,, <C-x><C-o>
 map <Esc><Esc>  <C-O>:w<CR>
 
@@ -202,6 +218,8 @@ nmap <CR> i<CR><Esc>
 
 nmap tt :NERDTreeToggle<CR>:wincmd w<CR>
 
+nmap [[ :TagbarToggle<CR>
+
 "------------------------------------------------------------
 " Auto-Complete
 
@@ -209,7 +227,7 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType stylus set omnifunc=csscomplete#CompleteCSS
+autocmd FileType styl set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
@@ -230,3 +248,21 @@ let TE_WinWidth = 45
 let NERDTreeChDirMode=2
 let g:slimv_python = 'python2'
 let g:slimv_swank_cmd ='! xterm -e sbcl --load /home/michael/.vim/bundle/slimv.vim/slime/start-swank.lisp &'
+
+" CtrlP Ignore
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|public)|(\.(swp|ico|git|svn))$'
+
+" Cosco Mappings
+autocmd FileType javascript,css nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+autocmd FileType javascript,css imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
+
+" Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

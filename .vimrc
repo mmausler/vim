@@ -29,14 +29,13 @@ Plugin 'gmarik/Vundle.vim'
 "Bundle 'Lokaltog/vim-easymotion'
 Plugin  'vim-airline/vim-airline'
 Plugin  'easymotion/vim-easymotion'
-Plugin  'msanders/snipmate.vim'
 Plugin  'rstacruz/sparkup'
 Plugin  'tpope/vim-surround'
 Plugin  'tpope/vim-repeat'
 Plugin  'tpope/vim-rails'
 Plugin  'tpope/vim-ragtag'
 Plugin  'tpope/vim-unimpaired'
-Plugin  'edsono/vim-matchit'
+Plugin  'vim-scripts/matchit.zip'
 Plugin  'scrooloose/nerdtree'
 Plugin  'kien/ctrlp.vim'
 Plugin  'othree/html5.vim'
@@ -47,7 +46,9 @@ Plugin  'cakebaker/scss-syntax.vim'
 Plugin  'scrooloose/syntastic'
 Plugin  'majutsushi/tagbar'
 Plugin  'qpkorr/vim-bufkill'
+Plugin  'honza/vim-snippets'
 Plugin  'SirVer/ultisnips'
+Plugin  'ervandew/supertab'
 Plugin  'lfilho/cosco.vim'
 Plugin  'Valloric/YouCompleteMe'
 Plugin  'wavded/vim-stylus'
@@ -56,6 +57,8 @@ Plugin  'xsbeats/vim-blade'
 Plugin  'dracula/vim'
 Plugin  'editorconfig/editorconfig-vim'
 Plugin  'hhsnopek/vim-sugarss'
+Plugin  'pangloss/vim-javascript'
+Plugin  'mxw/vim-jsx'
 
 call vundle#end() 
 " Attempt to determine the type of a file based on its name and possibly its
@@ -177,6 +180,15 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F12> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F12>
 
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
 
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -208,6 +220,7 @@ nmap ;; :b#<CR>
 nmap <C-b> :CtrlPBuffer<CR>
 inoremap ,, <C-x><C-o>
 map <Esc><Esc>  <C-O>:w<CR>
+nmap ]] :SyntasticToggleMode<CR>
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -266,3 +279,20 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['standard']
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Automatically format JS on save
+" autocmd bufwritepost *.js silent execute "!standard --fix >/dev/null 2>&1" | redraw!
+" set autoread

@@ -1,7 +1,7 @@
 let TE_Use_Right_Window = 1
-let TE_Ctags_Path="/usr/bin/ctags"
+let TE_Ctags_Path="/usr/local/bin/ctags"
 let TE_WinWidth = 45
-let g:slimv_python = 'python2'
+let g:slimv_python = 'python3.4'
 let g:slimv_swank_cmd ='! xterm -e sbcl --load /home/michael/.vim/bundle/slimv.vim/slime/start-swank.lisp &'
 
 " CtrlP Ignore

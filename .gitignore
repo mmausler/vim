@@ -1,1 +1,8 @@
 bundle/
+.netrwhist
+passwords.vim
+sessions
+undo/*
+plugged
+autoload/plug.vim.old
+.viminfo

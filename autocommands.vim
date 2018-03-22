@@ -11,6 +11,12 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
+" Define JSX filetype
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
 " Automatically format JS on save
 " autocmd bufwritepost *.js silent execute "!standard --fix >/dev/null 2>&1" | redraw!
 " set autoread

@@ -6,3 +6,4 @@ undo/*
 plugged
 autoload/plug.vim.old
 .viminfo
+view

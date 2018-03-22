@@ -16,8 +16,10 @@ call plug#begin('~/.vim/plugged')
 " UI
 Plug  'vim-airline/vim-airline'
 Plug  'kien/ctrlp.vim'
-Plug  'scrooloose/syntastic'
+" Plug  'scrooloose/syntastic'
+Plug  'w0rp/ale'
 Plug  'tpope/vim-vinegar'
+Plug  'jaxbot/semantic-highlight.vim'
 Plug  'altercation/vim-colors-solarized'
 Plug  'tomasr/molokai'
 Plug  'dracula/vim'

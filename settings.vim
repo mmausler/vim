@@ -32,6 +32,11 @@ set hidden
 " Better command-line completion
 set wildmenu
 
+" Deep directory searching
+set path+=**
+set wildignore+=**/node_modules/**
+set wildignore+=**/public/**
+
 " Show partial commands in the last line of the screen
 set showcmd
 

@@ -33,6 +33,7 @@ Plug  'ervandew/supertab'
 Plug  'honza/vim-snippets'
 Plug  'SirVer/ultisnips'
 Plug  'Valloric/YouCompleteMe'
+Plug  'rstacruz/vim-hyperstyle'
 " Languages
 Plug  'sheerun/vim-polyglot'
 Plug  'vim-scripts/slimv.vim'

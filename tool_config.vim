@@ -46,3 +46,7 @@ let g:ale_linters = {
 \   'jsx': ['stylelint', 'eslint']
 \}
 let g:ale_linter_aliases = {'jsx': 'css'}
+
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
